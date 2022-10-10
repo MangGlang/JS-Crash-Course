@@ -38,7 +38,33 @@ let isStoreOpen = false;
 isStoreOpen === false is the same as !isStoreOpen 
 isStoreOpen === true is the same as isStoreOpen */
 
-/* Falsy Values */
+/* Falsy Values are...
+    values that are considered 'false' when converted to a boolean:
+    
+    undefined, null, NaN, 0, "", false 
+    
+    Truthy Values are...
+
+    defined integers, doubles, strings, "false", "0", [], and {} 
+    (as you can see, exceptions are only for empty arrays and objects
+
+    To check if a value is truthy or falsy, head over to console on inspect
+    and include double "!!" before your variable.
+
+    Example: !!"0"
+*/
+
+let val = "Minhlee";
+if (val) {
+  console.log(!!val);
+} else {
+  console.log(!!val);
+}
+
+/* Ternary Operators */
+let isStoreOpen = true;
+let str = cash >= price && isStoreOpen ? "give receipt" : "do not give receipt";
+console.log(str);
 
 // Loops
 
