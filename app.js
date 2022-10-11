@@ -67,6 +67,63 @@ let str = cash >= price && isStoreOpen ? "give receipt" : "do not give receipt";
 console.log(str);
 
 // Loops
+/* DRY Principal: Don't repeat yourself */
+// let count = 1;
+
+// while (count <= 100) {
+//     console.log(count)
+//     count += 1;
+// }
+
+// for (let i = 0; i < 3; ++i) {
+//     console.log(i);
+// }
+
+/* my way without looking at example of how to output
+for (let i = 1; i <= 20; ++i) {
+  if (i % 3 == 0) console.log("Frontend");
+  if (i % 5 == 0) console.log("Simplified");
+  if (i % 3 == 0 && i % 5 == 0) console.log(i);
+  else console.log(i);
+}
+
+Solution: */
+/**
+ * @example
+ * 1 -> 1
+ * 2 -> 2
+ * 3 -> "Frontend"
+ * ...
+ * 15 -> "Frontend Simplified"
+ * ...
+ * 20 -> "Simplified"
+ */
+for (let i = 1; i <= 20; ++i) {
+  if (i % 3 === 0 && i % 5 === 0)
+    console.log(`${i} ->
+    Frontend Simplified`);
+  else if (i % 3 == 0) console.log(`${i} -> Frontend`);
+  else if (i % 5 == 0) console.log(`${i} -> Simplified`);
+  else console.log(`${i} -> ${i}`);
+}
+
+/** Print out every character from the string:
+ * "Frontend Simplified"
+ *
+ * @example
+ * 'F'
+ * 'r'
+ * 'o'
+ * 'n'
+ * ...
+ * 'e'
+ * 'd'
+ */
+let randomString = "Frontend Simplified";
+for (let i = 0; i < randomString.length; ++i) {
+  console.log(randomString[i]);
+}
+// since we are not reassigning randomString to anything else, you can set it to const instead of let.
 
 // Functions
 
