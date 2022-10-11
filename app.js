@@ -126,9 +126,151 @@ for (let i = 0; i < randomString.length; ++i) {
 // since we are not reassigning randomString to anything else, you can set it to const instead of let.
 
 // Functions
+// DRY - Don't Repeat Yourself
+// Function Definition
+function welcomePersonToFES(firstName, lastName) {
+  console.log(`Welcome to Frontend Simplified, ${firstName} ${lastName}`);
+}
+// Call the function
+welcomePersonToFES("Minhlee", "Lam");
+welcomePersonToFES("David", "Bragg");
+
+// new Function
+function sumOfTwoNumbers(num1, num2) {
+  return num1 + num2;
+  // return statement in a function = exits function
+  // does not compile everything after
+}
+console.log(sumOfTwoNumbers(10, 10));
+
+/**
+ * Create a function that converts Celsius to Fahrenheight
+ *
+ * Formula:
+ *  F = C x 1.8 + 32
+ *
+ * @example
+ * convertCelsiusToFahrenheight(0) -> 32
+ * convertCelsiusToFahrenheight(10) -> 50
+ * convertCelsiusToFahrenheight(30) -> 86
+ *
+ */
+
+// function convertCelsiusToFahrenheight(celsius) {
+//   return celsius * 1.8 + 32;
+// }
+// console.log(convertCelsiusToFahrenheight(0));
+// console.log(convertCelsiusToFahrenheight(10));
+// console.log(convertCelsiusToFahrenheight(30));
+
+// Another way of defining a function using "const, and "arrow function"
+const convertCelsiusToFahrenheight = (celsius) => {
+  return celsius * 1.8 + 32;
+};
+console.log(convertCelsiusToFahrenheight(0));
+// notice the semicolon on the braces.
 
 // Arrays
+let arr = [20, 30, 40, 50, 100];
+/* .push method adds element onto end of array:
+arr.push(200);
+console.log(arr);
+*/
 
+/* filter method (with long method) --> contains "call-back function" 
+  syntax --> "() => {}" if a callback function has any code 
+  after return statement = disregarded */
+// let newArr = arr.filter((element) => {
+//   // if (element < 50) {
+//   //   return true;
+//   // }
+//   // function prints and iterates through all elements in array, and
+//   // returning true = copies all elements into newArr
+// });
+/* filter method (short method) */
+// let newArr = arr.filter((element) => element < 50);
+// console.log(newArr);
+
+/**
+ * Filter out all the 'FAIL' elements in an array
+ *
+ * @example
+ * ['A+', 'A', 'FAIL'] => ['A+', 'A']
+ * ['FAIL', 'FAIL', 'B'] => ['B']
+ */
+let grades = ["A+", "A", "FAIL"];
+// long method
+/*  let finalGrade = grades.filter((grade) => {
+      if (grade != "FAIL") return true;
+    });
+    console.log(finalGrade);
+  */
+// short method
+/* let finalGrade = grades.filter((grade) => grade != "FAIL");
+  console.log(finalGrade);
+      */
+
+/**
+ * Filter out all 'FAIL' elements in an array
+ * without using array.filter method
+ *
+ * @examples
+ * ['A+', 'A', 'FAIL'] => ['A+', 'A']
+ * ['FAIL', 'FAIL', 'B'] => ['B']
+ */
+let grades1 = ["A+", "A", "FAIL"];
+
+// create empty array
+let goodGrades = [];
+
+for (let i = 0; i < grades1.length; ++i) {
+  // add current element onto 'goodGrades' only if
+  // current element != fail
+  if (grades1[i] != "FAIL") goodGrades.push(grades1[i]);
+}
+console.log(goodGrades);
+
+// Array Dot Map; Similar to Array Filter Method
+// accepts call-back syntax
+/* Iterates through all elements, and turns all elements 
+  into "undefined" based on return line. */
+// let arr1 = [1, 4, 9, 16];
+// let newArr1 = arr.map((element) => {
+//   console.log(element);
+//   return undefined;
+// });
+// console.log(newArr1);
+
+/**
+ * Array Dot Map Example
+ * Turn each element in an array of dollars into cents
+ *
+ * @examples
+ * [1, 5, 10, 3] => [100, 500, 1000, 300]
+ *
+ */
+
+let dollars = [1, 5, 10, 3];
+/*
+  // long method
+  let dollarsToCents = dollars.map((dollar) => {
+    return dollar * 100;
+  });
+  console.log(dollarsToCents);
+
+  //short method
+  let dollarsToCents1 = dollars.map((dollar) => dollar * 100);
+  console.log(dollarsToCents1);
+  */
+
+// create empty array to hold
+let dollarsToCents2 = [];
+
+// for loop method
+for (let i = 0; i < dollars.length; ++i) {
+  dollarsToCents2.push(dollars[i] * 100);
+}
+console.log(dollarsToCents2);
 // Objects
 
 // DOM (Document-Object-Model)
