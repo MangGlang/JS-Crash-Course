@@ -272,5 +272,112 @@ for (let i = 0; i < dollars.length; ++i) {
 }
 console.log(dollarsToCents2);
 // Objects
+// Arrays can be filled with any data-types:
+// Array of Objects
+let users = [
+  {
+    username: "Minhlee",
+    email: "minhleenl@gmail.com",
+    password: "test123",
+    subscriptionStatus: "VIP",
+    discordID: "MangGlang#0000",
+    lessonsCompleted: [0, 1],
+  },
+  {
+    username: "Mitri",
+    email: "mitri@gmail.com",
+    password: "mitri123",
+    subscriptionStatus: "VIP",
+    discordID: "Mitri#0000",
+    lessonsCompleted: [0, 1, 2, 3],
+  },
+];
+
+// function to log users in with an account
+
+function login(email, password) {
+  for (let i = 0; i < users.length; ++i) {
+    if (users[i].email == email) {
+      console.log(users[i]);
+      if (users[i].password == password) {
+        console.log("log user in -- details = correct");
+      } else {
+        console.log("login in details are incorrect - try again");
+      }
+      return; // stops looping through array objects once found email
+    }
+    console.log("could not find email that matches");
+  }
+}
+
+login("minhleenl@gmail.com", "test123");
+
+// // console.log(users[0].lessonsCompleted.map((elem) => elem * 2));
+login("minhleenl@gmail.com", "test1234");
+login("123minhleenl@gmail.com", "test1234");
+
+/**
+ * Create a register function that accepts:
+ * - username
+ * - email
+ * - password
+ * - subscriptionStatus
+ * - discordID
+ * - lessonsCompleted
+ *
+ * Inside your register function:
+ * 1. Create a user object
+ * 2. Push this user obj. onto the 'users' array
+ */
+
+// function register(
+//   name,
+//   email,
+//   password,
+//   subscriptionStatus,
+//   discordID,
+//   lessonsCompleted
+// ) {
+//   // create user obj
+//   let user = [
+//     {
+//       username: name,
+//       email: email,
+//       password: password,
+//       subscriptionStatus: subscriptionStatus,
+//       discordID: discordID,
+//       lessonsCompleted: lessonsCompleted,
+//     },
+//   ];
+//   // push user obj into 'users' array
+//   users.push(user);
+// }
+
+/* Bad Practice to push 6 arguments... Instead, push only an object */
+// register(
+//   "Mitri",
+//   "mitri@gmail.com",
+//   "mitri123",
+//   "VIP",
+//   "Mitri#0000",
+//   [0, 1, 2, 3]
+// );
+
+// Efficiently pushing user object into 'users' array without
+// requiring 6 parameters for register function
+function register(user) {
+  users.push(user);
+}
+register({
+  username: "Mitri",
+  email: "mitri@gmail.com",
+  password: "mitri123",
+  subscriptionStatus: "VIP",
+  discordID: "Mitri#0000",
+  lessonsCompleted: [0, 1, 2, 3],
+});
+console.log(users);
 
 // DOM (Document-Object-Model)
+/* Allows you to access and change styling and 
+content of elements on website */
