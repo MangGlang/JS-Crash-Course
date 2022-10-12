@@ -381,3 +381,8 @@ console.log(users);
 // DOM (Document-Object-Model)
 /* Allows you to access and change styling and 
 content of elements on website */
+
+// First way of accessing an element
+console.log(document);
+
+// Second way of accessing an element
