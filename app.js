@@ -383,6 +383,36 @@ console.log(users);
 content of elements on website */
 
 // First way of accessing an element
-console.log(document);
+// property that allows you to access an element
+// querySelector takes a parameter that can be a class,
+// id, or accessing the element itself: "h1", "#title", ".title"
+// console.log(document.querySelector("#title"));
 
 // Second way of accessing an element
+// better practice because # "hash-tag" is not needed
+
+// console.log(document.getElementById("title"));
+
+/* .innerHTML property => JS allows you to change name #title to a certain string.
+  Before, I had #title set to "Minhlee Lam", but it now displays the following
+  text.
+
+*/
+// document.querySelector("#title").innerHTML = "Frontend Simplified";
+
+// Change HTML
+document.querySelector("#title").innerHTML += "Frontend Simplified";
+
+// Change CSS
+// Accesses title h1 element
+document.querySelector("#title").style.fontSize = "16px";
+
+// function for button
+// function changeTitleToRed() {
+//   document.querySelector("#title").style.color = "red";
+//   console.log("clicked");
+// }
+
+function toggleDarkMode() {
+  document.querySelector("body").classList.toggle("dark-theme");
+}
